@@ -4,7 +4,9 @@ import HeaderTabs from '../components/HeaderTabs'
 import SearchBar from '../components/SearchBar';
 import Categories from '../components/Categories';
 import { ScrollView } from 'react-native';
+import { Divider } from 'react-native-elements'
 import RestaurantItems, { localRestaurants } from '../components/RestaurantItems';
+import BottomTabs from '../components/BottomTabs';
 
 const YELP_API_KEY =
   "KP2E-Y_QzCTjMwKcPx0uVZCpT4Y7Mzhuh-jyhNYLEOu0-DONGqmm8Xv-6-hoJEXR_gxFWB1ICJgJ_FLfey_sKrYSG-LaQ8w23m3DZl0MPwslL9QMOEu6baC-kugMYnYx"
@@ -12,6 +14,7 @@ const YELP_API_KEY =
 export default function Home() {
   const [restaurantData, setRestaurantData] = React.useState(localRestaurants)
   const [city, setCity] = React.useState("Glasgow");
+  
   const getRestaurantFromYelp = () => {
     const yelpurl = `https://api.yelp.com/v3/businesses/search?term=restaurants&location=${city}`;
 
@@ -42,6 +45,8 @@ export default function Home() {
         <Categories />
         <RestaurantItems restaurantData={restaurantData} />
       </ScrollView >
+      <Divider width ={1}/>
+      <BottomTabs/>
     </SafeAreaView>
   );
 }
