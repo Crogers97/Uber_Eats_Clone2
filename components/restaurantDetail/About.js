@@ -35,7 +35,7 @@ const RestaurantDescription = (props) => (
         marginTop: 10,
         marginHorizontal:15,
         fontWeight:'400',
-        fontSize:15.5
+        fontSize: 15.5
 
     }}>{props.description}</Text>
 )
